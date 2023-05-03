@@ -12,4 +12,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
       <result property="email" column="email"/>
       <result property="joinDate" column="joinDate"/>
    </resultMap>
+   
+   <select id="selectAllMemberlist" resultMap="memResult">
+   		<![CDATA[
+   			SELECT * FROM membertbl ORDER BY joinDate DESC
+   		]]>
+   </select>
+   
+   <select id="findMember" resultType="memberVO" parameterType="String">
+        <![CDATA[
+   			SELECT * FROM membertbl WHERE id=#{id}
+   		]]>
+   </select>
+   
+   <insert id="insertMember" parameterType="memberVO">
+    	<![CDATA[
+   			INSERT INTO membertbl (id,pwd,name,email) VALUES (#{id},#{pwd},#{name},#{email})
+   		]]>
+   </insert>
+   <update id="updateMember" parameterType="memberVO">
+   		<![CDATA[
+   			UPDATE membertbl SET pwd=#{pwd},name=#{name}, email=#{email} WHERE id=#{id}
+   		]]>
+   </update>
+   <delete id="deleteMember">
+   		<![CDATA[
+   			DELETE FROM  membertbl WHERE id=#{id}
+   		]]>
+   </delete>
 </mapper>

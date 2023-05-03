@@ -18,7 +18,7 @@
      <param-name>contextConfigLocation</param-name>
      <param-value>
         /WEB-INF/config/action-service.xml
-        /WEB-INF/config/action-dataSource.xml
+        /WEB-INF/config/action-mybatis.xml
      </param-value>
   </context-param>
     <servlet>
